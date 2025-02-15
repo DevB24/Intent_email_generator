@@ -1,7 +1,7 @@
 # Intent_email_generator
 This Project checks the user activity and sends an email according to the intention of the user and requirements.
 
-# Intent Database
+# Intent Database(Please Create the DB for getting the case studies from the company domain for generating refral links and projects of company)
 
 This repository contains the SQL scripts for setting up and inserting dummy data into the `intent_assignment` database using PostgreSQL.
 
@@ -70,8 +70,19 @@ I have not pushed the api key along with the code but you can generate for free 
 
 
 
+## Two ways to run after completing the above setup:
+
+## First:
 ## Ater downlaoding the Repo
 ## 1. Run the requirements.txt file (Python version- 3.10)
 ## 2. Run the main.py file 
 ## Go to http://127.0.0.1:8000/
 ## Fill the form and Submit it will generate an email
+
+
+## Second:
+
+## 1. Go inside the cd Intent_email_generator
+## 2. Run docker build -t intent_email_generator .
+## 3. Run docker run -p 8000:8000 intent_email_generator
+
