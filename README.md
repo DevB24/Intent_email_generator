@@ -59,6 +59,11 @@ UPDATE case_studies SET description = CASE
     ELSE description
 END;
 ```
+## Samples:
+
+![Screenshot 2025-02-15 202842](https://github.com/user-attachments/assets/5f2c2331-e3f4-4f59-ba19-cd5498124bad)
+
+![Screenshot 2025-02-15 202920](https://github.com/user-attachments/assets/408a922e-f322-4821-ac46-9b99a1b24791)
 
 
 
