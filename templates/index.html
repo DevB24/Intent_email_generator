@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze URLs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #response {
+            margin-top: 20px;
+            text-align: left;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        .email-content {
+            white-space: pre-line;
+            line-height: 1.6;
+            color: #333;
+        }
+        .email-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        .benefits-list {
+            padding-left: 20px;
+        }
+        .benefits-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Analyze URLs</h2>
+        <form id="analyzeForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="message" placeholder="Message" required></textarea>
+            <input type="text" id="visited_pages" placeholder="Visited Pages (comma-separated)" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        document.getElementById("analyzeForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            
+            const data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value,
+                visited_pages: document.getElementById("visited_pages").value.split(",").map(url => url.trim())
+            };
+
+            try {
+                const response = await fetch("http://localhost:8000/analyze-urls", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                // Format the email content with proper structure
+                const formattedEmail = `
+                    <div class="email-header">
+                        <h3>${result.generated_email.split('\n')[0]}</h3>
+                    </div>
+                    <div class="email-content">
+                        ${result.generated_email.split('\n').slice(1).join('\n')}
+                    </div>
+                `;
+                
+                document.getElementById("response").innerHTML = formattedEmail;
+            } catch (error) {
+                document.getElementById("response").innerHTML = `
+                    <div class="email-content">
+                        Error generating email: ${error.message}
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

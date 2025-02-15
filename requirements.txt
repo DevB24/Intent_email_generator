@@ -1,0 +1,7 @@
+groq
+fastapi
+psycopg2
+bs4
+requests
+uvicorn
+jinja2
