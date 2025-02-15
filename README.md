@@ -66,6 +66,7 @@ END;
 
 ## Use Grooq api with llama70b model
 I have not pushed the api key along with the code but you can generate for free from this link : https://console.groq.com/keys
+Change the retrival.py file after generating the api key.
 
 
 
