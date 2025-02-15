@@ -67,3 +67,11 @@ END;
 ## Use Grooq api with llama70b model
 I have not pushed the api key along with the code but you can generate for free from this link : https://console.groq.com/keys
 
+
+
+
+## Ater downlaoding the Repo
+## 1. Run the requirements.txt file (Python version- 3.10)
+## 2. Run the main.py file 
+## Go to http://127.0.0.1:8000/
+## Fill the form and Submit it will generate an email
