@@ -103,8 +103,8 @@ http://127.0.0.1:8000/analyze-urls
 ## Second:
 
 ## 1. Go inside the cd Intent_email_generator
-## 2. Run docker build -t intent_email_generator .
-## 3. Run docker run -p 8000:8000 intent_email_generator
+## 2. Run: docker build -t intent_email_generator .
+## 3. Run: docker run -p 8000:8000 intent_email_generator
 
 
 
