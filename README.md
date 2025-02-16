@@ -77,7 +77,8 @@ Change the retrival.py file after generating the api key.
 ## Ater downlaoding the Repo
 ## 1. Run the requirements.txt file (Python version- 3.10)
 ## 2. Run the main.py file :
-``` uvicorn main:app --reload 
+```
+uvicorn main:app --reload 
 ```
 ## Go to http://127.0.0.1:8000/
 ## Fill the form and Submit it will generate an email
