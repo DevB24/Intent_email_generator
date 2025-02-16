@@ -80,7 +80,23 @@ Change the retrival.py file after generating the api key.
 ```
 uvicorn main:app --reload 
 ```
-## Go to http://127.0.0.1:8000/
+## Go to http://127.0.0.1:8000/  OR Hit this json in the postman on 
+```
+http://127.0.0.1:8000/analyze-urls
+```
+```
+{
+  "name": "kim possible",
+  "email": "kim@possible@gmail.com",
+  "message": "Need Go and Web developers",
+  "visited_pages": [
+    "https://www.mindinventory.com/golang-development.php"
+    
+  ]
+}
+```
+
+
 ## Fill the form and Submit it will generate an email
 
 
